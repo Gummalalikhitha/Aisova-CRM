@@ -33,7 +33,7 @@ The application strictly follows an enterprise-level, layered architecture for c
 
 1. **Clone the repository:**
    ```bash
-   git clone <your-github-repository-url>
+   git clone https://github.com/Gummalalikhitha/Aisova-CRM.git
    cd aisova-crm-api
 
 2. **Build the project:**
