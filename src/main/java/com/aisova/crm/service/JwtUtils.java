@@ -1,0 +1,42 @@
+package com.aisova.crm.service;
+
+import com.aisova.crm.entity.User;
+import io.jsonwebtoken.*;
+import io.jsonwebtoken.security.Keys;
+import org.springframework.stereotype.Component;
+
+import java.security.Key;
+import java.util.Date;
+
+@Component
+public class JwtUtils {
+
+    // 256-bit secure key for HS256
+    private final Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
+    private final int jwtExpirationMs = 86400000; // 24 hours
+
+    public String generateJwtToken(User user) {
+        return Jwts.builder()
+                .setSubject((user.getEmail()))
+                .claim("username", user.getUsername())
+                .claim("role", user.getRole().name())
+                .setIssuedAt(new Date())
+                .setExpiration(new Date((new Date()).getTime() + jwtExpirationMs))
+                .signWith(key)
+                .compact();
+    }
+
+    public String getEmailFromJwtToken(String token) {
+        return Jwts.parserBuilder().setSigningKey(key).build()
+                .parseClaimsJws(token).getBody().getSubject();
+    }
+
+    public boolean validateJwtToken(String authToken) {
+        try {
+            Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(authToken);
+            return true;
+        } catch (JwtException | IllegalArgumentException e) {
+            return false;
+        }
+    }
+}
