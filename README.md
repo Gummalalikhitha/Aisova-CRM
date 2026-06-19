@@ -1,4 +1,4 @@
-# Aisova Technologies Private Limited - Customer Management REST API
+# Aisova Technologies Private Limited - Customer Management REST API 
 
 ## 📖 Project Overview
 This project is a secure, production-ready Customer Management REST API developed as a technical assessment for Aisova Solutions Pvt Ltd. It serves as the core backend module for a CRM platform, enabling standard CRUD operations, robust validation, and custom search functionalities.
