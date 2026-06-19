@@ -28,65 +28,66 @@ The application strictly follows an enterprise-level, layered architecture for c
 ### Prerequisites
 * Java Development Kit (JDK) 17 or higher
 * Maven 3.6+
-
+  
 ### Installation Steps
+
 1. **Clone the repository:**
-```bash
+   ```bash
    git clone <your-github-repository-url>
    cd aisova-crm-api
-Build the project:
 
-Bash
+2. **Build the project:**
+   ```bash
    mvn clean install
-Run the application:
-
-Bash
+   
+3. **Run the application:**
+   ```bash
    mvn spring-boot:run
+  
 The application will start on http://localhost:8080
-
-🔐 Authentication (JWT & Basic)
+## 🔐 Authentication (JWT & Basic)
 All business endpoints are secured. Upon application startup, a default Admin user is automatically generated.
 
-Admin Credentials:
+**Admin Credentials:**
+* **Email:** `admin@gmail.com`
+* **Password:** `Admin@123`
 
-Email: admin@gmail.com
+**How to Access Secured APIs:**
+1. Send a `POST` request to `/api/auth/login` with the Admin credentials.
+2. Copy the resulting token from the response.
+3. Include it in the `Authorization` header as a `Bearer Token` for all customer-related API requests.
 
-Password: Admin@123
+## 📡 API Endpoints
 
-How to Access Secured APIs:
+| HTTP Method | Endpoint | Description | Authentication |
+|---|---|---|---|
+| POST | `/api/auth/login` | Authenticate and get JWT | Public |
+| POST | `/api/customers` | Create a new customer | Bearer Token |
+| GET | `/api/customers` | List all customers | Bearer Token |
+| GET | `/api/customers/{id}` | Get customer by ID | Bearer Token |
+| PUT | `/api/customers/{id}` | Update an existing customer | Bearer Token |
+| DELETE | `/api/customers/{id}` | Delete a customer | Bearer Token |
+| GET | `/api/customers/search?email=` | Search customer by email | Bearer Token |
 
-Send a POST request to /api/auth/login with the Admin credentials.
+## 📚 Documentation & Database Access
+* **Swagger UI Documentation:** Access the interactive API documentation at: `http://localhost:8080/swagger-ui.html`
+* **H2 Database Console:** View and query the in-memory database at: `http://localhost:8080/h2-console`
+  * **JDBC URL:** `jdbc:h2:mem:aisovadb`
+  * **User Name:** `sa`
+  * **Password:** *(leave blank)*
 
-Copy the resulting token from the response.
+---
 
-Include it in the Authorization header as a Bearer Token for all customer-related API requests.
+## 📸 Application Screenshots
 
-📡 API Endpoints
-HTTP Method	Endpoint	Description	Authentication
-POST	/api/auth/signup	Register a new user	Public
-POST	/api/auth/login	Authenticate and get JWT	Public
-POST	/api/customers	Create a new customer	Bearer Token
-GET	/api/customers	List all customers	Bearer Token
-GET	/api/customers/{id}	Get customer by ID	Bearer Token
-PUT	/api/customers/{id}	Update an existing customer	Bearer Token
-DELETE	/api/customers/{id}	Delete a customer	Bearer Token
-GET	/api/customers/search?email=	Search customer by email	Bearer Token
-📚 Documentation & Database Access
-Swagger UI Documentation: Access the interactive API documentation at: http://localhost:8080/swagger-ui.html
+### 1. Create Customer (POST)
+![Create Customer Success](screenshots/create-customer.jpg)
 
-H2 Database Console: View and query the in-memory database at: http://localhost:8080/h2-console
+### 2. List Customers (GET)
+![List Customers Success](screenshots/list-customers.jpg)
 
-JDBC URL: jdbc:h2:mem:aisovadb
+### 3. Database Console (H2)
+![H2 Database Records](screenshots/h2-database.jpg)
 
-User Name: sa
-
-Password: (leave blank)
-
-📁 Evaluation Deliverables Included
-[x] Source Code (Separated Architecture)
-
-[x] README.md
-
-[x] Postman API Collection
-
-[x] Execution Screenshots
+### 4. Swagger UI Documentation
+![Swagger UI](screenshots/swagger-ui.jpg)
