@@ -34,7 +34,7 @@ The application strictly follows an enterprise-level, layered architecture for c
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/Gummalalikhitha/Aisova-CRM.git
-   cd aisova-crm-api
+   cd aisova-crm
 
 2. **Build the project:**
    ```bash
