@@ -80,14 +80,29 @@ All business endpoints are secured. Upon application startup, a default Admin us
 
 ## 📸 Application Screenshots
 
-### 1. Create Customer (POST)
-![Create Customer Success](screenshots/create-customer.jpg)
+### 1. Admin Login
+![Admin Login](screenshots/login.png)
 
-### 2. List Customers (GET)
-![List Customers Success](screenshots/list-customers.jpg)
+### 2. Create Customer
+![Create Customer](screenshots/create-customer.png)
 
-### 3. Database Console (H2)
-![H2 Database Records](screenshots/h2-database.jpg)
+### 3. List Customers
+![List Customers](screenshots/list-customer.png)
 
-### 4. Swagger UI Documentation
-![Swagger UI](screenshots/swagger-ui.jpg)
+### 4. Get Customer by ID
+![Get Customer](screenshots/get-customer.png)
+
+### 5. Update Customer
+![Update Customer](screenshots/update-customer.png)
+
+### 6. Delete Customer
+![Delete Customer](screenshots/delete-customer.png)
+
+### 7. Search Customer by Email
+![Search by Email](screenshots/searchbyemail.png)
+
+### 8. Database Console (H2)
+![H2 Database](screenshots/h2-console.png)
+
+### 9. Swagger UI Documentation
+![Swagger UI](screenshots/swagger-UI.png)
